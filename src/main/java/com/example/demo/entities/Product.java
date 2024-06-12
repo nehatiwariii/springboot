@@ -10,6 +10,10 @@ public class Product {
     private String name;
     private int price;
     private String description;
+    public Product()
+    {
+
+    }
     public Product(long idnum, String name, int price, String description) {
         this.idnum = idnum;
         this.name = name;

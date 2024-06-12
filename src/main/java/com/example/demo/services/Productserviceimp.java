@@ -10,7 +10,7 @@ import com.example.demo.entities.Product;
 @Service
 public class Productserviceimp implements Productservices {
     @Autowired
-    ProductDao productdao;
+    private ProductDao productdao;
     public Productserviceimp (){
 
     }
