@@ -2,8 +2,12 @@ package com.example.demo;
 
 import java.util.List;
 
+import com.example.demo.entities.Orders;
 import com.example.demo.entities.Product;
+import com.example.demo.entities.User;
+import com.example.demo.services.Orderservices;
 import com.example.demo.services.Productservices;
+import com.example.demo.services.Userservices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +20,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class Mycontroller {
     @Autowired
     private Productservices prodser;
+    @Autowired
+    private Userservices userser;
+    @Autowired
+    private Orderservices orderser;
     @GetMapping ("/Products")
     public List<Product> Getproducts()
     {
@@ -35,6 +43,16 @@ public class Mycontroller {
     public Product Updateproduct ( @RequestBody Product p)
     {
         return this.prodser.Updateproduct(p);
+    }
+    @PostMapping("/Users")
+    public User Adduser( @RequestBody User u)
+    {
+        return this.userser.AddUser(u);
+    }
+    @PostMapping("/Orders")
+    public Orders Addorder( @RequestBody Orders o)
+    {
+        return this.orderser.Addorder(o);
     }
    }
 
