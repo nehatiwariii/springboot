@@ -2,7 +2,7 @@ package com.example.demo;
 
 import java.util.List;
 
-import com.example.demo.entities.Orders;
+import com.example.demo.entities.Or_der;
 import com.example.demo.entities.Product;
 import com.example.demo.entities.User;
 import com.example.demo.services.Orderservices;
@@ -50,7 +50,7 @@ public class Mycontroller {
         return this.userser.AddUser(u);
     }
     @PostMapping("/Orders")
-    public Orders Addorder( @RequestBody Orders o)
+    public Or_der Addorder(@RequestBody Or_der o)
     {
         return this.orderser.Addorder(o);
     }

@@ -1,7 +1,7 @@
 package com.example.demo.services;
 
 import com.example.demo.Dao.OrderDao;
-import com.example.demo.entities.Orders;
+import com.example.demo.entities.Or_der;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,14 +12,14 @@ public class Orderservicesimp implements Orderservices {
     @Autowired
     private OrderDao orderdao;
     @Override
-    public List<Orders> Getorder() {
+    public List<Or_der> Getorder() {
         return orderdao.findAll();
     }
-    public Orders Addorder(Orders order){
+    public Or_der Addorder(Or_der order){
         orderdao.save(order);
         return order;
     }
-    public Orders Deleteorder(Orders order)
+    public Or_der Deleteorder(Or_der order)
     {
         orderdao.delete(order);
         return order;

@@ -1,64 +1,85 @@
 package com.example.demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 public class User {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private long User_Id;
-    private String User_Name;
-    private String User_Email;
-    private String User_Password;
-    private String Phone_Number;
-    public User()
-    {
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+            name = "UUID",
+            strategy = "org.hibernate.id.UUIDGenerator"
+    )
+    private String userId;
+    private String user_name;
+    private String user_email;
 
-    }
-    public User(String User_Name, String User_Email, String User_Password, String Phone_Number) {
-        {
-            this.User_Name = User_Name;
-            this.User_Email = User_Email;
-            this.User_Password = User_Password;
-            this.Phone_Number = Phone_Number;
-
-        }
+    public String getAddress() {
+        return address;
     }
 
-    public String getUser_Email() {
-        return User_Email;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public String getUser_Password() {
-        return User_Password;
+    private String user_password;
+    private String phone_number;
+    private String address;
+//    public User()
+//    {
+//
+//    }
+//    public User(String User_Name, String User_Email, String User_Password, String Phone_Number) {
+//        {
+//            this.user_name = User_Name;
+//            this.user_email = User_Email;
+//            this.user_password = User_Password;
+//            this.phone_number = Phone_Number;
+//        }
+//    }
+public String getUserId() {
+    return userId;
+}
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public void setUser_Password(String user_Password) {
-        User_Password = user_Password;
+    public String getUser_email() {
+        return user_email;
     }
 
-    public String getUser_Name() {
-        return User_Name;
+    public void setUser_email(String user_email) {
+        this.user_email = user_email;
     }
 
-    public void setUser_Name(String user_Name) {
-        User_Name = user_Name;
+    public String getUser_name() {
+        return user_name;
     }
 
-    public void setUser_Email(String user_Email) {
-        User_Email = user_Email;
+    public void setUser_name(String user_name) {
+        this.user_name = user_name;
     }
 
-    public String getPhone_Number() {
-        return Phone_Number;
+    public String getUser_password() {
+        return user_password;
     }
 
-    public void setPhone_Number(String phone_Number) {
-        Phone_Number = phone_Number;
+    public void setUser_password(String user_password) {
+        this.user_password = user_password;
     }
 
+    public String getPhone_number() {
+        return phone_number;
+    }
 
+    public void setPhone_number(String phone_number) {
+        this.phone_number = phone_number;
+    }
 }
