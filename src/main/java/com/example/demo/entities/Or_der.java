@@ -13,8 +13,12 @@ public class Or_der {
             strategy = "org.hibernate.id.UUIDGenerator"
     )
     private String order_id;
-    private String user_id;
-    private String product_id;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
     private Date order_time = new Date();
     private int  quantity;
     private String payment_type;
@@ -37,13 +41,6 @@ public class Or_der {
         this.order_time = order_time;
     }
 
-    public String getProduct_id() {
-        return product_id;
-    }
-
-    public void setProduct_id(String product_id) {
-        this.product_id = product_id;
-    }
 
     public String getPayment_type() {
         return payment_type;
@@ -53,13 +50,7 @@ public class Or_der {
         this.payment_type = payment_type;
     }
 
-    public String getUser_id() {
-        return user_id;
-    }
 
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
-    }
 
     public int getQuantity() {
         return quantity;

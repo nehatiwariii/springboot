@@ -1,11 +1,10 @@
 package com.example.demo.entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
+
+import java.util.List;
 
 @Entity
 public class User {
@@ -16,10 +15,10 @@ public class User {
             name = "UUID",
             strategy = "org.hibernate.id.UUIDGenerator"
     )
-    private String userId;
     private String user_name;
     private String user_email;
-
+    @OneToMany(mappedBy = "user_id", cascade = CascadeType.ALL)
+    private List<Or_der> or_der;
     public String getAddress() {
         return address;
     }
@@ -43,13 +42,8 @@ public class User {
 //            this.phone_number = Phone_Number;
 //        }
 //    }
-public String getUserId() {
-    return userId;
-}
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
+
 
     public String getUser_email() {
         return user_email;
