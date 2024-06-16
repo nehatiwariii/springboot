@@ -7,13 +7,15 @@ import java.util.List;
 
 @Entity
 public class Product {
+
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(
             name = "UUID",
             strategy = "org.hibernate.id.UUIDGenerator"
     )
-    @OneToMany(mappedBy = "product_id", cascade = CascadeType.ALL)
+    private String product_Id;
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private List<Or_der> or_der;
     private String product_name;
     private int product_price;
@@ -21,6 +23,13 @@ public class Product {
     private int product_age;
     private String owner_id;
     private String image_path;
+    public String getProduct_Id() {
+        return product_Id;
+    }
+
+    public void setProduct_Id(String product_Id) {
+        this.product_Id = product_Id;
+    }
 
     public String getProduct_category() {
         return product_category;

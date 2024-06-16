@@ -9,16 +9,26 @@ import java.util.List;
 @Entity
 public class User {
 
+
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(
             name = "UUID",
             strategy = "org.hibernate.id.UUIDGenerator"
     )
+    private String user_Id;
     private String user_name;
     private String user_email;
-    @OneToMany(mappedBy = "user_id", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Or_der> or_der;
+
+    public String getUser_Id() {
+        return user_Id;
+    }
+
+    public void setUser_Id(String user_Id) {
+        this.user_Id = user_Id;
+    }
     public String getAddress() {
         return address;
     }

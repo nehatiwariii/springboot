@@ -16,9 +16,11 @@ public class Or_der {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
+
     private Date order_time = new Date();
     private int  quantity;
     private String payment_type;
