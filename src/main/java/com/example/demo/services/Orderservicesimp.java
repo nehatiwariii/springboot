@@ -12,16 +12,28 @@ public class Orderservicesimp implements Orderservices {
     @Autowired
     private OrderDao orderdao;
     @Override
-    public List<Or_der> Getorder() {
+    public List<Or_der> Getorder()
+    {
+
         return orderdao.findAll();
     }
-    public Or_der Addorder(Or_der order){
+    public Or_der Addorder(Or_der order)
+    {
         orderdao.save(order);
         return order;
     }
-    public Or_der Deleteorder(Or_der order)
+    public void Deleteorder(String orderid)
     {
-        orderdao.delete(order);
+        orderdao.deleteById(orderid);
+    }
+    public Or_der Updateorder(Or_der order)
+    {
+        orderdao.save(order);
         return order;
     }
+    public Or_der Getorderbyid(String orderid)
+    {
+        return orderdao.getReferenceById(orderid);
+    }
+
 }

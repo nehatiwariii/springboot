@@ -5,11 +5,8 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.util.List;
-
 @Entity
 public class User {
-
-
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(
@@ -21,6 +18,8 @@ public class User {
     private String user_email;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Or_der> or_der;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Product> product;
 
     public String getUser_Id() {
         return user_Id;
@@ -40,20 +39,6 @@ public class User {
     private String user_password;
     private String phone_number;
     private String address;
-//    public User()
-//    {
-//
-//    }
-//    public User(String User_Name, String User_Email, String User_Password, String Phone_Number) {
-//        {
-//            this.user_name = User_Name;
-//            this.user_email = User_Email;
-//            this.user_password = User_Password;
-//            this.phone_number = Phone_Number;
-//        }
-//    }
-
-
 
     public String getUser_email() {
         return user_email;

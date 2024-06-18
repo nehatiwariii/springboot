@@ -21,7 +21,9 @@ public class Product {
     private int product_price;
     private String product_category;
     private int product_age;
-    private String owner_id;
+    @ManyToOne
+    @JoinColumn(name = "owner_id")
+    private User user;
     private String image_path;
     public String getProduct_Id() {
         return product_Id;
@@ -59,16 +61,24 @@ public class Product {
         return product_name;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public List<Or_der> getOr_der() {
+        return or_der;
+    }
+
+    public void setOr_der(List<Or_der> or_der) {
+        this.or_der = or_der;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public void setProduct_name(String name) {
         this.product_name = name;
-    }
-
-    public String getOwner_id() {
-        return owner_id;
-    }
-
-    public void setOwner_id(String owner_id) {
-        this.owner_id = owner_id;
     }
 
     public int getProduct_price() {

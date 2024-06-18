@@ -30,7 +30,7 @@ public class Mycontroller {
        return this.prodser.Getproducts();
     }
     @GetMapping ("/Products/{productid}")
-    public Product Getproduct( @PathVariable long productid)
+    public Product Getproduct( @PathVariable String productid)
     {
         return this.prodser.Getproduct( productid);
     }

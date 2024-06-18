@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.demo.Dao.ProductDao;
+import com.example.demo.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,14 +22,14 @@ public class Productserviceimp implements Productservices {
 
     }
     @Override
-    public Product Getproduct( long productid)
+    public Product Getproduct( String productid)
     {
       return productdao.getReferenceById(productid);
     }
     @Override
     public Product Addproduct (Product p)
     {
-        productdao.save(p);
+            productdao.save(p);
         return p;
     }
     @Override
@@ -36,5 +37,11 @@ public class Productserviceimp implements Productservices {
     {
         productdao.save(p);
         return p;
+    }
+    @Override
+    public  void Deleteproduct (String productid)
+    {
+        productdao.deleteById(productid);
+
     }
 }
